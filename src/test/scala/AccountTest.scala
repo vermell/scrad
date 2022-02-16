@@ -7,3 +7,5 @@ class AccountTest extends Specification {
     Account.calculateInterest(1) === 2
   }
 }
+
+
