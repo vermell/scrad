@@ -26,9 +26,9 @@ jobs:
         # Server address of Docker registry. If not set then will default to Docker Hub
         registry: registry.digitalocean.com
         # Username used to log against the Docker registry
-        username: test
+        username: ${{ secrets.REGISTRY_DIGITALOCEAN }}
         # Password or personal access token used to log against the Docker registry
-        password: test
+        password: ${{ secrets.REGISTRY_DIGITALOCEAN }}
     - name: Build and test
       run: sbt -v +test
     - name: Publish Image
