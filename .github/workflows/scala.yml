@@ -20,8 +20,19 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
+    - name: Docker Login
+      uses: docker/login-action@v1.14.1
+      with:
+        # Server address of Docker registry. If not set then will default to Docker Hub
+        registry: registry.digitalocean.com
+        # Username used to log against the Docker registry
+        username: ${{ secrets.REGISTRY_DIGITALOCEAN }}
+        # Password or personal access token used to log against the Docker registry
+        password: ${{ secrets.REGISTRY_DIGITALOCEAN }}
     - name: Build and test
       run: sbt -v +test
+    - name: Publish Image
+      run: sbt docker:publish
     - name: Cleanup before cache
       shell: bash
       run: |
