@@ -10,4 +10,4 @@ idePackagePrefix := Some("org.vermell.scrad")
 libraryDependencies += "org.specs2" %% "specs2-core" % "5.0.0" % Test
 
 enablePlugins(JavaAppPackaging)
-dockerRepository := Some("ghcr.io/vermell/scrad")
+dockerRepository := Some("registry.digitalocean.com/vermell")
